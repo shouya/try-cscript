@@ -17,7 +17,8 @@ post '/syntaxtree' do
     parser = CScript::Parser.new
     parser.scan_string(request.POST['data'])
 
-    tree = JSON.pretty_generate(parser.do_parse.as_json)
+    tree = JSON.pretty_generate(parser.do_parse.as_json,
+                               :max_nesting => 99999)
     erb :syntax_tree, :locals => { :tree => tree }
 end
 
