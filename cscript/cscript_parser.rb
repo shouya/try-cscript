@@ -51,7 +51,7 @@ module CScript
 
         def do_parse(*args)
             tree = SyntaxTree::Tree.new(
-                @yacc.send(:do_parse), {
+                @yacc.do_parse, {
                 :language => 'cscript',
                 :version => $CS_VERSION,
                 :filename => @scanner.instance_variable_get(:@filename),

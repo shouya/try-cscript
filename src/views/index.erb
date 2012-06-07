@@ -15,12 +15,26 @@
         <form action="syntaxtree" method="POST">
             <p>Write your code below:</p>
             <textarea name="data" id="data" style="width: 800px; height: 200px">
-def plus_one(arg) {
-    arg + 1;
+def is_prime(n) {
+    i = 1;
+    if (n == 1) return false;
+
+    while ((i = i + 1) < n) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
-EMIT plus_one(3); /* 4 */
-EMIT plus_one(7); /* 8 */
+i = 1;
+while (i <= 100) {
+   if (is_prime(i)) {
+       EMIT i;
+   }
+   i = i + 1;
+}
+
 </textarea><br />
             <input type="submit" value="Go syntatx tree!" /> <br />
             <input type="submit" value="Run it!" onclick="this.form.action='/run';" />
