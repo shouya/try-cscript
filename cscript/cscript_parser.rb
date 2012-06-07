@@ -10,6 +10,9 @@ require_relative 'cscript'
 $CS_PARSER_VERSION = '1.0'
 
 module CScript
+    class Yacc
+        public :do_parse
+    end
     class Parser
         attr_accessor :scanner, :yacc, :preprocessor
         attr_accessor :options # temporarily useless
@@ -22,6 +25,7 @@ module CScript
             @yacc.define_singleton_method :next_token do
                 scanner.next_token
             end
+
             @yacc.singleton_class.class_eval do
                 include SyntaxTree.Shortcut do |node|
                     node.place = scanner.location
@@ -47,7 +51,7 @@ module CScript
 
         def do_parse(*args)
             tree = SyntaxTree::Tree.new(
-                @yacc.do_parse, {
+                @yacc.send(:do_parse), {
                 :language => 'cscript',
                 :version => $CS_VERSION,
                 :filename => @scanner.instance_variable_get(:@filename),

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Welcome to try cscript!</title>
+    </head>
+
+    <body>
+        <h2><tt>CScript</tt> is a scripting programming language, you may try it here.</h2>
+
+        <p>
+        Project homepage: on <a href="https://github.com/shouya/ruby-cscript">https://github.com/shouya/ruby-cscript</a>.
+        </p>
+
+        <p>
+        <form action="syntaxtree" method="POST">
+            <p> Write your code down here: </p>
+            <textarea name="data" id="data" style="width: 800px; height: 200px">
+def plus_one(arg) {
+    arg + 1;
+}
+
+EMIT plus_one(3); /* 4 */
+EMIT plus_one(7); /* 8 */
+</textarea><br />
+            <input type="submit" value="Go syntatx tree!" /> <br />
+            <input type="submit" value="Run it!" onclick="this.form.action='/run';" />
+        </form>
+        </p>
+
+        <hr />
+        <p>
+            Contact me:
+            <ul>
+                <li>Email: zxyzxy12321 (AT) gmail.com </li>
+                <li>Twitter: <a href="http://twitter.com/54c3">@54c3</a></li>
+            </ul>
+        </p>
+    </body>
+</html>
